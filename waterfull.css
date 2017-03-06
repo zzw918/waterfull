@@ -2,20 +2,24 @@
 	margin:0;
 	padding: 0;
 }
-#container{
+
+.container {
 	position: relative;
 }
-.box{
-	padding: 5px;
+
+.container .box {
 	float: left;
+    padding: 5px;
 }
-.box_img{
+
+.container .box .box_img {
 	padding: 5px;
 	border: 1px solid #ccc;
-	box-shadow: 0 0 5px #ccc;
 	border-radius: 5px;
+    box-shadow: 0 0 5px #ccc;
 }
-img{
+
+.container .box .box_img img{
 	width: 150px;
 	height: auto;
 }
