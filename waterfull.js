@@ -1,25 +1,26 @@
-window.onload = function() {
-	imgLocation("container","box");
+window.onload = function () {
+	imgLocation("container", "box");
 }
 
 function imgLocation(parent, content) {
 
-	var cparent=document.getElementById(parent),
-	    ccontent=getChildElement(cparent,content),
-	    imgWidth=ccontent[0].offsetWidth,
-	    cols =Math.floor(document.documentElement.clientWidth/imgWidth);
-	cparent.style.cssText="width:"+imgWidth*cols+"px; margin: 0 auto";
+	var cparent = document.getElementById(parent),
+	    ccontent = getChildElement(cparent, content),
+	    imgWidth = ccontent[0].offsetWidth,
+	    cols = Math.floor(document.documentElement.clientWidth/imgWidth);
+	cparent.style.cssText = "width:" + imgWidth*cols + "px; margin: 0 auto";
 
-	var hArr=[],
+	var hArr = [],
 		i;
+
 	for( i = 0; i < ccontent.length; i++ ) {
 		if ( i < cols ) {
 			hArr.push(ccontent[i].offsetHeight);
 		} else {
 			var minH = Math.min.apply(null,hArr),
 			   index = getMinhIndex(hArr,minH);
-			ccontent[i].style.cssText = "position: absolute; top: "+ 
-					minH + "px;" + "left: " + imgWidth*index + "px;";
+			ccontent[i].style.cssText = "position: absolute; top: " + 
+					minH + "px;" + "left: " + imgWidth * index + "px;";
 			hArr[index] += ccontent[i].offsetHeight;
 		}
 	}
@@ -41,7 +42,7 @@ function getChildElement(parent, content) {
 // 获取一个值在数组中的index
 function getMinhIndex(arr, val) {
 	for (var i in arr) {
-		if( arr[i] == val ){
+		if ( arr[i] == val ) {
 			return i;
 		}
 	}
